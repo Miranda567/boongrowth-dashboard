@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="opay.css">
+      
+    <title>Dashboard  |  </title>
+
+</head>
+<body>
+    <div class="header">
+        <div>
+           <a href="profile.html"> <i class="fas fa-user" style="font-size:26px; color:#007"></i></a>
+            <span class="user" id="userNameDisplay">Hi Loading ...</span>
+        </div>
+
+
+            <i class="fas fa-bell" style="font-size:20px; color:#007"></i>
+        </div>
+    </div>
+
+    <div class="balance-card">
+        <p>Available Balance</p>
+        <h2 id="mainBalance">$0.00</h2>
+        <p>& Interest $0.00</p>
+        <div class="actions">
+            <button onclick="redirectTodeposit()"> <i class="fa fa-plus" style="font-size:12px; color:#007;"></i>  <br><span>Deposit</span></button>
+            
+                        <button onclick="redirectTowithdraw()"> <i class="fa fa-exchange" style="font-size:12px;color:#007;"></i>  <br><span>Withdraw</span></button>
+
+        </div>
+    </div>
+             <section id="bonus-section">
+  <div class="bonus-panel" id="total-profit">
+    <h2><i class="fas fa-chart-line" style="color: #fff;"></i> Total Profit </h2>
+    <p id="balance-display6">$0.00</p>
+  </div>
+  <div class="bonus-deposit-panel" id="bonus">
+    <h2><i class="fas fa-gift" style="color: #fff;"></i> Total Deposit</h2>
+    <p id="depositBalance">$0.00</p>
+  </div>
+  <div class="bonus-withdraw-panel" id="referral-bonus">
+    <h2><i class="fas fa-handshake" style="color: #fff;"></i> Withdrawal</h2>
+    <p id="withdrawalBalance">$0.00</p>
+  </div>
+  <div class="bonusi-panel" id="pending-bonus">
+    <h2><i class="fas fa-hourglass-half" style="color: #fff;"></i> Total Bonus</h2>
+    <p id="balance-display4">$0.00</p>
+  </div>
+</section>
+
+    <div class="services">
+        <div class="service">
+    
+<a href="investment.html" class="links">
+            <i class="fas fa-donate" style="font-size:20px; color:#007"></i> <p>Invest</p></a>
+        </div>
+        <div class="service">
+                
+<a href="#" class="links">
+<i class="fa fa-history" style="font-size:20px; color:#007"></i>
+            <p>Profit</p></a>
+        </div>
+        <div class="service">
+<a href="#" class="links"><i class="fa fa-cog" style="font-size:24px; color:#007"></i>
+          <p>Settings</p></a>
+        </div>
+        </div>
+<hr>
+<div class="services">
+      
+    <div class="balance-carda">
+          <h3>Current Plan</h3>
+            <p id="currentPlan">No current plan</p>
+            <button id="addPlanButton">Add Plan</button>
+            </div>
+
+    </div>
+    
+
+
+    					<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+    
+  <div class="transaction-history">
+            <h3>Transaction History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                    
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list">
+                    <!-- Transactions will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="bottom-nav">
+  <!-- Home -->
+  <a href="opay.html" class="nav-item active">
+    <i class="fas fa-home"></i><br>
+    Home
+  </a>
+
+  <!-- Pay -->
+  <a href="deposit.html" class="nav-item">
+    <i class="fas fa-plus"></i><br>
+    Pay
+  </a>
+  <a href="addcard.html" class="nav-item">
+    <i class="fas fa-credit-card"></i><br>
+    Card
+  </a>
+  <!-- More -->
+  <a href="profile.html" class="nav-item">
+    <i class="fas fa-user"></i><br>
+    Me
+  </a>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+
+    
+
+  
+    <script src="button-js.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>

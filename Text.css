@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.balances {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+.balance-card {
+    background-color: #e9f7ef;
+    padding: 10px;
+    border: 1px solid #d4edda;
+    border-radius: 4px;
+    width: 100%
+    max-width: 300px;
+    text-align: center;
+}
+
+.investment-plan {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#addPlanButton {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#addPlanButton:hover {
+    background-color: #0056b3;
+}
+
+.transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.transaction-history th, .transaction-history td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-history th {
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+    .balances {
+        flex-direction: column;
+    
+    
+}
+
+.text-center {
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.375rem;
+}
+
+.bg-success {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.bg-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+
+.bg-danger {
+    color: #fff;
+    background-color: #dc3545;
+}

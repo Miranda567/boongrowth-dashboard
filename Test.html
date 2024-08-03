@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="text.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>User Dashboard</h1>
+        <div class="user-info">
+            <h2 id="userNameDisplay">Welcome, User!</h2>
+        </div>
+        <div class="balances">
+            <div class="balance-card">
+                <h3>Total Deposit</h3>
+                <p id="depositBalance">$0.00</p>
+            </div>
+            <div class="balance-card">
+                <h3>Account Balance</h3>
+                <p id="mainBalance">$0.00</p>
+            </div>
+            <div class="balance-card">
+                <h3>Total Withdrawal</h3>
+                <p id="withdrawalBalance">$0.00</p>
+            </div>
+        </div>
+        <div class="investment-plan">
+            <h3>Current Plans</h3>
+            <div id="currentPlans">No current plan</div>
+            <button id="addPlanButton">Add Plan</button>
+        </div>
+        <div class="transaction-history">
+            <h3>Transaction History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Plan Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list">
+                    <!-- Transactions will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>
