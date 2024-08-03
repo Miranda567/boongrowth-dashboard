@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="widthgv=device-width, initial-scale=1.0">
+  <title>Deposit Funds</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #f1f1f1;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+header h2 {
+  font-size: 12px;
+}
+h1 {
+  margin: 0;
+}
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #007;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid #f1f1f1;
+            padding: 6px 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-to-home i {
+            margin-right: 10px;
+        }
+        .back-to-home:hover {
+            background-color: #f1f1f1;
+            color: #007bff;
+        }
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.deposit-funds-section {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.deposit-funds-section h2 {
+  color: #001041;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  width: 100%;
+            padding: 20px 30px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      outline: none;
+        }
+  
+      
+select {
+  
+      display: block;
+      width: 100%;
+      padding: 20px 50px;
+      margin: 0 auto 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 10px;
+      background-color: #fff;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      outline: none;
+      font-weight: 400;
+  
+        }
+
+button {
+  background-color: #007;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+    .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  
+    background-color: #fff; /* Light gray background color */
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000; /* Ensure the navigation is on top of other content */
+  }
+
+  /* Bottom navigation item style */
+  .nav-item {
+    text-align: center;
+    flex-grow: 1;
+    padding: 5px 0;
+    color: #007; /* Default color for icons */
+    text-decoration: none;
+  }
+
+  /* Bottom navigation item icon style */
+  .nav-item i {
+    font-size: 14px; /* Adjust icon size as needed */
+  }
+
+  /* Active item style */
+  .active {
+    color: #fff; 
+    background: #007;
+    border-radius: 5px;
+    padding: 5px 2px;
+    margin: 2px;
+    /* Blue color for active item */
+  }
+</style>
+</head>
+<body>
+
+<header>
+          <a href="index.html" class="back-to-home">
+            <i class="fas fa-angle-left"></i>Deposit
+        </a>
+ 
+</header>
+
+<main>
+  <section class="deposit-funds-section">
+    <h2>Deposit Funds to Your Account</h2>
+    <form id="depositForm">
+      <div class="form-group">
+        <label for="amount">Amount to Deposit:</label>
+        <input type="text" id="amount"  placeholder="Enter Amount" name="amount" required>
+      </div>
+
+                <div class="form-group">
+   <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="" disabled selected>Select a payment method</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="litecoin">USDT</option>
+        </select><br><br>
+
+</div>
+      <button type="submit">Deposit Funds</button>
+    </form>
+    
+  </section>
+  
+   <div class="bottom-nav">
+  <!-- Home -->
+  <a href="opay.html" class="nav-item">
+    <i class="fas fa-home"></i><br>
+    Home
+  </a>
+
+  <!-- Pay -->
+  <a href="deposit.html" class="nav-item active">
+    <i class="fas fa-plus"></i><br>
+    Pay
+  </a>
+  <a href="addcard.html" class="nav-item">
+    <i class="fas fa-credit-card"></i><br>
+    Me
+  </a>
+  <!-- More -->
+  <a href="profile.html" class="nav-item">
+    <i class="fas fa-user"></i><br>
+    Me
+  </a>
+</div>
+</main>
+  
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+  authDomain: "hendaa-1.firebaseapp.com",
+  databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+  projectId: "hendaa-1",
+  storageBucket: "hendaa-1.appspot.com",
+  messagingSenderId: "831134776479",
+  appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+};
+firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Function to handle deposit submission
+       
+       document.getElementById("depositForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const amount = parseFloat(document.getElementById("amount").value);
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            if (!isNaN(amount) && amount > 0 && paymentMethod) {
+                // Add deposit to transactions collection with status: "Pending"
+                db.collection("transactions").add({
+                    type: "Deposit",
+                    amount: amount,
+                    paymentMethod: paymentMethod,
+                    status: "Pending",
+                    userId: firebase.auth().currentUser.uid,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => {
+                    alert("Deposit request submitted successfully!");
+                    let redirectUrl = "";
+                    switch(paymentMethod) {
+                        case "bitcoin":
+                            redirectUrl = "btc.html";
+                            break;
+                        case "ethereum":
+                            redirectUrl = "eth.html";
+                            break;
+                        case "litecoin":
+                            redirectUrl = "usdt.html";
+                            break;
+                    }
+                    window.location.href = redirectUrl;
+                })
+                .catch((error) => {
+                    console.error("Error adding deposit: ", error);
+                });
+            } else {
+                alert("Please enter a valid amount and select a payment method.");
+            }
+        });
+    </script>
+</body>
+</html>
