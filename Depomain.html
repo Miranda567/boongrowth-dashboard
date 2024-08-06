@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Funds | Boongrowth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header h1 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .header .history {
+            color: #6e00ff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .fund-method, .amount-section {
+            margin: 20px 0;
+        }
+        .fund-method h2, .amount-section h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .add-card {
+            display: relative;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #6e00ff;
+            border-radius: 8px;
+          
+            color: #6e00ff;
+        }
+        .add-card p{
+          font-size: 16px;
+          margin-bottom: 10px;
+          
+        }
+        .add-card img {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+        .amount-input, select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .amount-input input, select {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+        .amount-input button {
+            background: #6e00ff;
+            border: none;
+            color: #fff;
+                        border: 1px solid #6e00ff;
+            border-radius: 8px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .amount-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        .amount-buttons button {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            width: 48%;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: gray;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #6e00ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Top-up Your Account</h1>
+            <a href="#" class="history">History</a>
+        </div>
+        <div class="fund-method">
+            <h2>Fund Method</h2>
+
+        </div>
+        <div class="amount-section">
+
+                <form id="depositForm">
+                  
+                   <label for="paymentMethod"><b>Payment Method</b></label>
+                   <br>
+        <select id="paymentMethod" required>
+            <option value="">Select a payment method</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="solana">Solana</option>
+        </select>
+        
+                    <h2>Enter or select amount</h2>
+            <div class="amount-input">
+              
+                <input type="text"  id="amount" placeholder="Enter 100~99,999,999">
+                <button type="submit">Fund</button>
+                </form>
+            </div>
+            <div class="amount-buttons">
+                <button>₦200</button>
+                <button>₦1,000</button>
+                <button>₦2,000</button>
+                <button>₦3,000</button>
+                <button>₦5,000</button>
+                <button>₦10,000</button>
+            </div>
+        </div>
+                    <div class="add-card">Total Deposit: 
+                 <span id="depositBalanceDisplay">$ 0.00</span>
+            </div>
+        <div class="footer">
+            FREE 5% Bonus on first investment<br>
+            For more FREE Bonus, <a href="investment">Invest now </a>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.amount-buttons button').forEach(button => {
+            button.addEventListener('click', () => {
+                const amount = button.innerText.replace('₦', '');
+                document.querySelector('.amount-input input').value = amount;
+            });
+        });
+
+        document.querySelector('.amount-input button').addEventListener('click', () => {
+            alert('Funding with amount: ₦' + document.querySelector('.amount-input input').value);
+        });
+    </script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+  authDomain: "hendaa-1.firebaseapp.com",
+  databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+  projectId: "hendaa-1",
+  storageBucket: "hendaa-1.appspot.com",
+  messagingSenderId: "831134776479",
+  appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+};
+firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Function to handle deposit submission
+       
+       document.getElementById("depositForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const amount = parseFloat(document.getElementById("amount").value);
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            if (!isNaN(amount) && amount > 0 && paymentMethod) {
+                // Add deposit to transactions collection with status: "Pending"
+                db.collection("transactions").add({
+                    type: "Deposit",
+                    amount: amount,
+                    paymentMethod: paymentMethod,
+                    status: "Pending",
+                    userId: firebase.auth().currentUser.uid,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => {
+                    alert("Deposit request submitted successfully!");
+                    let redirectUrl = "";
+                    switch(paymentMethod) {
+                        case "bitcoin":
+                            redirectUrl = "btc.html";
+                            break;
+                        case "ethereum":
+                            redirectUrl = "eth.html";
+                            break;
+                        case "litecoin":
+                            redirectUrl = "litecoin.html";
+                            break;
+                            case "solana":
+                            redirectUrl = "solana.html";
+                            break;
+                    }
+                    window.location.href = redirectUrl;
+                })
+                .catch((error) => {
+                    console.error("Error adding deposit: ", error);
+                });
+            } else {
+                alert("Please enter a valid amount and select a payment method.");
+            }
+        });
+            function displayDepositBalance() {
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    const userRef = db.collection("users").doc(user.uid);
+                    userRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const depositBalance = doc.data().depositBalance || 0;
+                            document.getElementById("depositBalanceDisplay").innerText = ` $${depositBalance}`;
+                        } else {
+                            console.log("No such document!");
+                        }
+                    }).catch((error) => {
+                        console.log("Error getting document:", error);
+                    });
+                } else {
+                    // Redirect to login page if no user is signed in
+                    window.location.href = "login.html";
+                }
+            });
+        }
+        // Listen for authentication state changes
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+          
+                displayDepositBalance();
+              
+            } else {
+                window.location.replace("login.html");
+            }
+        });
+    </script>
+</body>
+</html>
