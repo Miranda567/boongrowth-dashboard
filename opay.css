@@ -1,0 +1,506 @@
+@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);body{color:#333;font-family:Manrope,Century Gothic,sans-serif!important}*{box-sizing:border-box;scroll-behavior:smooth}.imgMask{mask-image:#00000080;-webkit-mask-image:#00000080}.hambuger{background-color:#000;height:3px;margin:6px 0;width:30px}.typography--variant-h1,.typography--variant-h2,.typography--variant-h3,.typography--variant-h4,.typography--variant-h5,.typography--variant-h6,.typography--variant-p{font-family:Manrope,Century Gothic,sans-serif}.signatureCanvas{background-color:#f00;border:1px solid rgba(51,48,48,.738);border-radius:6px;min-height:220px;width:340px}.slick-slide{height:100px}.wrapper{padding-left:5%;padding-right:5%}@media (min-width:768px)}
+        body {
+
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #fff;
+        }
+        .header img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+        .header-icons img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+        }
+        .balance-card {
+            background: linear-gradient(185deg, rgb(42, 72, 120), rgb(20, 22, 128));/* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    
+            color: #fff;
+            padding: 20px;
+            
+            margin: 10px;
+            border-radius: 10px;
+            
+        }
+        .balance-card h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .balance-card p {
+            margin: 10px 0;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            margin: 5px;
+          
+        }
+        .actions button {
+            background-color: #fff;
+            color: #007;
+            border: none;
+            padding: 2px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+          
+          
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            background: #ffffff;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .services .service {
+            background-color: #fff;
+            width: 20%;
+            margin: 10px;
+            padding: 10px;
+            font-weight: bold;
+                        font-size: 12px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+  
+
+        }
+        .footer {
+            background-color: #f4f4f4;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer img {
+            width: 24px;
+            height: 24px;
+
+            
+        }
+        .footer a {
+          text-decoration: none;
+          color: #0071ce;
+
+            
+        }
+        .user {
+          font-weight: bold;
+        }
+           .btn {
+            margin: 20px;
+            font-size: 16px;
+            color: #339;
+            line-height: 1.5
+            
+          }
+
+.content {
+    max-width: 350px;
+    margin: auto;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+  
+    background-color: #ffffff;
+            border-radius: 10px;
+
+}
+label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0055b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+.
+@media (max-width: 768px) {
+    #sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+
+  }
+  #bonus-section,#transactions {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+#balance-display {
+  font-size: 32px;
+  color: #fff;
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 10px 30px;
+  background-color: #fff;
+  color: #007;
+  border: none;
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #0056b3;
+}
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Your existing CSS styles */
+
+.profit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#totalProfit {
+  font-size: 24px;
+  color: #f00;
+}
+  .bonus-header,
+.referral-bonus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bonusAmount,#pending-balance,
+#referralBonusAmount {
+  font-size: 14px;
+  color: #;
+}
+#bonus-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.bonus-panel {
+  background-color: #34A853;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.bonus-panel h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.bonus-panel p {
+  font-size: 18px;
+  color: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+}
+.bonus-deposit-panel {
+  background-color: #157DFF;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.bonus-deposit-panel h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.bonus-deposit-panel p {
+  font-size: 18px;
+  color: #f9f4fa;
+  font-weight: bold;
+  text-align: center;
+}
+.bonus-withdraw-panel {
+  background-color: #EE4E24;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.bonus-withdraw-panel h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.bonus-withdraw-panel p {
+  font-size: 18px;
+  color: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+}
+.bonusi-panel {
+  background-color: #FCBC05;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #007;
+}
+
+.bonusi-panel h2 {
+  font-size: 16px;
+  color: #111;
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.bonusi-panel p {
+  font-size: 18px;
+  color: #001041;
+  font-weight: bold;
+  text-align: center;
+}
+.bonusu-panel {
+  background-color: #f00;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #007;
+}
+
+.bonusu-panel h2 {
+  font-size: 16px;
+  color: #111;
+  font-weight: 500;
+  text-align: center;
+  
+}
+
+.bonusu-panel p {
+  font-size: 18px;
+  color: #001041;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+    .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 20px;
+              align-items: center;
+      
+    background-color: #fff; /* Light gray background color */
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000; /* Ensure the navigation is on top of other content */
+  }
+
+  /* Bottom navigation item style */
+  .nav-item {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 12px;
+    padding: 5px 0;
+    color: #007; /* Default color for icons */
+    text-decoration: none;
+  }
+
+  /* Bottom navigation item icon style */
+  .nav-item i {
+    font-size: 24px; /* Adjust icon size as needed */
+  }
+
+  /* Active item style */
+  .active {
+    color: #fff; 
+    background: #007;
+    border-radius: 5px;
+    padding: 5px 2px;
+    margin: 2px;
+    /* Blue color for active item */
+  }
+.links {
+  text-decoration: none;
+  color: #007;
+}
+    .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+    
+            background-color: #3399ff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+        }
+        .navbar a i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .navbar a span {
+            font-size: 12px;
+        }
+        
+.balance-carda {
+    background-color: #e9f7ef;
+    padding: 10px;
+    border: 1px solid #d4edda;
+    border-radius: 4px;
+    width: 70%;
+    text-align: center;
+}
+.transaction-history table {
+    width: 100%;
+    
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.transaction-history th, .transaction-history td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-history th {
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+    .balances {
+        flex-direction: column;
+    }
+
+    .balance-card {
+    
+        margin-bottom: 10px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.375rem;
+}
+
+.bg-success {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.bg-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+
+.bg-danger {
+    color: #fff;
+    background-color: #dc3545;
+}

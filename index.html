@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="opay.css">
+        <style>
+          
+          ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .status-approved {
+            color: #28a745;
+        }
+        .status-pending {
+            color: #ffc107;
+        }
+        .status-rejected {
+            color: #dc3545;
+        }
+        .details {
+            flex-grow: 1;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .plano {
+          color: #339;
+          font-size: 24px;
+          
+        }
+                .balance-cardo {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 30px;
+            margin-right: 20px;
+        }
+        .balance {
+            flex-grow: 1;
+        }
+        .balance-cardo h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .balance-cardo p {
+            font-size: 24px;
+            margin: 5px 0 0;
+        }
+        .account { color: #000; background: #f4f4f4;}
+        .profit { color: #111; }
+        .deposit { color: #222; }
+        .withdrawal { color: #333; }
+        </style>
+      
+    <title>Dashboard  |  </title>
+
+</head>
+<body>
+    <div class="header">
+        <div>
+           <a href="profile.html"> <i class="fas fa-user" style="font-size:26px; color:#007"></i></a>
+            <span class="user" id="userNameDisplay">Hi Loading ...</span>
+        </div>
+
+
+            <i class="fas fa-bell" style="font-size:20px; color:#007"></i>
+        </div>
+    </div>
+
+    <div class="balance-card">
+        <p>Available Balance</p>
+        <h2 id="balance-display">$0.00</h2>
+        <p>& Interest <span id="profit-balance2"></span></p>
+        <div class="actions">
+            <button onclick="redirectTodeposit()"> <i class="fa fa-plus" style="font-size:12px; color:#007;"></i>  <br><span>Deposit</span></button>
+            
+                        <button onclick="redirectTowithdraw()"> <i class="fa fa-exchange" style="font-size:12px;color:#007;"></i>  <br><span>Withdraw</span></button>
+
+        </div>
+    </div>
+    
+    
+    <div class="balance-cardo account">
+        <span class="icon">💼</span>
+        <div class="balance">
+            <h3>Profit  Balance</h3>
+              <p id="profit-balance">$0.00</p>
+        </div>
+    </div>
+    <div class="balance-cardo profit">
+        <span class="icon">📈</span>
+        <div class="balance">
+            <h3>Total Deposit</h3>
+    <p id="deposit-balance">$0.00</p>
+        </div>
+    </div>
+    <div class="balance-cardo deposit">
+        <span class="icon">💵</span>
+        <div class="balance">
+            <h3>Total Bonus</h3>
+   <p id="bonus">$ 0</p>
+        </div>
+    </div>
+    <div class="balance-cardo withdrawal">
+        <span class="icon">💳</span>
+        <div class="balance">
+            <h3>Total Withdrawals</h3>
+            <p id="withdrawal-balance">$ 0</p>
+        </div>
+    </div>
+    
+
+  </div>
+
+ 
+  </div>
+</section>
+
+
+    <div class="services">
+        <div class="service">
+    
+<a href="invest.html" class="links">
+            <i class="fas fa-donate" style="font-size:20px; color:#007"></i> <p>Invest</p></a>
+        </div>
+        <div class="service">
+                
+<a href="transactions.html" class="links">
+<i class="fa fa-history" style="font-size:20px; color:#007"></i>
+            <p>History</p></a>
+        </div>
+        <div class="service">
+<a href="profile.html" class="links"><i class="fa fa-cog" style="font-size:24px; color:#007"></i>
+          <p>Settings</p></a>
+        </div>
+        </div>
+        
+             
+            </div>
+                <div class="balance-card">
+      
+            <h2 class="investment-title">Active Plan</h2>
+            <ul id="investment-history">
+                <!-- Investment history will be populated by JavaScript -->
+            </ul>
+        </div>
+
+      
+
+    <br>
+    <br>
+    
+        <div class="transaction-section">
+            <h2 class="transaction-title">Transaction History</h2>
+            <ul id="transaction-list">
+                <!-- Data will be populated by JavaScript -->
+            </ul>
+        </div>
+
+    </div>
+  </div>
+</div>
+  <div class="bottom-nav">
+  <!-- Home -->
+  <a href="index.html" class="nav-item active">
+    <i class="fas fa-home"></i><br>
+    Home
+  </a>
+
+  <!-- Pay -->
+  <a href="deposit.html" class="nav-item ">
+    <i class="fas fa-dollar-sign"></i><br>
+    Deposit
+  </a>
+   <a href="deposit.html" class="nav-item">
+    <i class="fas fa-chart-line"></i><br>
+    Finance
+  </a>
+  <a href="card.html" class="nav-item">
+    <i class="fas fa-credit-card"></i><br>
+    Me
+  </a>
+  <!-- More -->
+  <a href="profile.html" class="nav-item">
+    <i class="fas fa-user"></i><br>
+    Me
+  </a>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+            authDomain: "hendaa-1.firebaseapp.com",
+            databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+            projectId: "hendaa-1",
+            storageBucket: "hendaa-1.appspot.com",
+            messagingSenderId: "831134776479",
+            appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Firebase services
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+
+        // Function to display user balance
+        function displayBalance() {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    const userId = user.uid;
+                    const userRef = db.collection('users').doc(userId);
+
+                    userRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const userData = doc.data();
+                            document.getElementById('balance-display').innerText = `$ ${userData.mainBalance}`;
+                            document.getElementById('deposit-balance').innerText = `$   ${userData.depositBalance}`;
+                            document.getElementById('withdrawal-balance').innerText = `$  ${userData.withdrawalBalance}`;
+                            document.getElementById('bonus').innerText = `$  ${userData.bonus}`;
+                            document.getElementById('profit-balance').innerText = `$  ${userData.totalProfit}`;
+                            document.getElementById('profit-balance2').innerText = `$  ${userData.totalProfit}`;
+                        } else {
+                            console.log("No such document!");
+                        }
+                    }).catch((error) => {
+                        console.error("Error getting user document:", error);
+                    });
+                } else {
+                    console.log("User is not signed in.");
+                }
+            });
+        }
+
+        // Function to handle user logout
+        function logout() {
+            auth.signOut().then(() => {
+                console.log("User signed out");
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Error signing out:", error);
+            });
+        }
+
+        // Function to display user email
+      // Function to display user email
+function displayUserEmail() {
+    // Check if the user is authenticated
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in
+            const userEmail = user.email;
+            document.getElementById('user-email').innerText = userEmail;
+        } else {
+            // User is not signed in
+            console.log("User is not signed in.");
+        }
+    });
+}
+function getCurrentUserName() {
+            // Assuming you have a collection named 'users' and a document with the current user's ID
+            const currentUserID = firebase.auth().currentUser.uid;
+
+            // Reference to the document containing user data
+            const userRef = db.collection('users').doc(currentUserID);
+
+            // Fetch the document
+            userRef.get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        // Get the user's name from the document data
+                        const userName = doc.data().name;
+
+                        // Display the user's name on the dashboard
+                        document.getElementById('userNameDisplay').innerText = "Welcome, " + userName + "!";
+                    } else {
+                        console.log("No such document!");
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+        }
+
+
+        function displayInvestmentDetails() {
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    const userId = user.uid;
+                    const userRef = db.collection('users').doc(userId);
+
+                    userRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const userData = doc.data();
+               
+                            // Display investment history
+                            db.collection('investments').where('userId', '==', userId).get().then((querySnapshot) => {
+                                const investmentHistory = document.getElementById('investment-history');
+                                investmentHistory.innerHTML = ""; // Clear previous data
+
+                                querySnapshot.forEach((doc) => {
+                                    const investment = doc.data();
+                                    const listItem = document.createElement('li');
+                                    listItem.innerHTML = `
+                                        <strong class="plano">${investment.plan}</strong> 
+                                        
+                                    `;
+                                    investmentHistory.appendChild(listItem);
+                                });
+                            }).catch((error) => {
+                                console.log("Error getting investment history:", error);
+                            });
+
+                        } else {
+                            console.log("No such document!");
+                        }
+                    }).catch((error) => {
+                        console.error("Error getting user document:", error);
+                    });
+                } else {
+                    console.log("User is not signed in.");
+                }
+            });
+        }
+        // Listen for authentication state changes
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // If user is logged in, call the function to display the current user's name
+                getCurrentUserName();
+            } else {
+                // If user is not logged in, redirect to the login page or handle as needed
+                window.location.replace("login.html");
+            }
+        });
+
+
+        // Function to display transaction history
+        function displayTransactionHistory() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    db.collection("transactions").where("userId", "==", user.uid).get().then((querySnapshot) => {
+                        const transactionList = document.getElementById("transaction-list");
+                        transactionList.innerHTML = ""; // Clear previous data
+
+                        querySnapshot.forEach((doc) => {
+                            const transaction = doc.data();
+                            const statusClass = transaction.status === 'Approved' ? 'status-approved' :
+                                transaction.status === 'Pending' ? 'status-pending' :
+                                'status-rejected';
+
+                            const icon = transaction.type === 'Deposit' ? '💰' :
+                                transaction.type === 'Withdrawal' ? '🏦' : '🔄';
+
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `
+                                <span class="icon">${icon}</span>
+                                <div class="details">
+                                    <strong>${transaction.type}</strong> - $${transaction.amount}
+                                    <div class="timestamp">${new Date(transaction.timestamp.seconds * 1000).toLocaleString()}</div>
+                                </div>
+                                <div class="${statusClass}">${transaction.status}</div>
+                            `;
+                            transactionList.appendChild(listItem);
+                        });
+                    }).catch((error) => {
+                        console.log("Error getting documents: ", error);
+                    });
+                } else {
+                    window.location.href = "login.html";
+                }
+            });
+        }
+
+        // Call the function to display user data
+        displayBalance();
+        displayTransactionHistory();
+                                      displayInvestmentDetails();
+        displayUserEmail();
+
+        // Add event listener to the logout button
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    </script>
+
+  
+    <script src="button-js.js"></script>
+    <script src="tes.js"></script>
+</body>
+</html>
