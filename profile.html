@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Account Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .profile img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .header .profile .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007;
+
+        }
+
+        .header .profile .tier {
+            font-size: 10px;
+            color: #00796b;
+            background-color: #e0f7fa;
+            padding: 2px 5px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .total-assets {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-assets .amount {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+                        background: #007;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .total-assets .points {
+
+            background-color: #007;
+            padding: 2px 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .earnings {
+            font-size: 14px;
+            color: #888;
+            margin: 10px 0;
+        }
+
+        .earn-more {
+            background-color: #007;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .warning {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .transaction-history {
+            margin: 20px 0;
+        }
+
+        .transaction-history .history {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .transaction-history .transaction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .transaction-history .transaction .amount {
+            font-size: 16px;
+        }
+
+        .transaction-history .transaction .date {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .services {
+            margin: 20px 0;
+        }
+
+        .services .service {
+            font-size: 16px;
+            padding: 10px 0;
+            color: #111;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .services .service:last-child {
+            border-bottom: none;
+        }
+        .service a {
+    padding: 5px 3px 5px 2px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #111;
+    display: block;
+    
+    margin-right: 40px;
+    
+    margin-bottom: 5px;
+    border-radius: 2px;
+  
+}
+
+
+        .prof {
+          text-decoration: none;
+        }
+          .footer {
+            background-color: #f4f4f4;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer img {
+            width: 24px;
+            height: 24px;
+
+            
+        }
+        .footer a {
+          text-decoration: none;
+          color: #007;
+}
+        .user {
+          font-weight: bold;
+        }
+        .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  
+    background-color: #fff; /* Light gray background color */
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000; /* Ensure the navigation is on top of other content */
+  }
+
+  /* Bottom navigation item style */
+  .nav-item {
+    text-align: center;
+    flex-grow: 1;
+    padding: 5px 0;
+    color: #007; /* Default color for icons */
+    text-decoration: none;
+  }
+
+  /* Bottom navigation item icon style */
+  .nav-item i {
+    font-size: 14px; /* Adjust icon size as needed */
+  }
+
+  /* Active item style */
+  .active {
+    color: #fff; 
+    background: #007;
+    border-radius: 5px;
+    padding: 5px 2px;
+    margin: 2px;
+    /* Blue color for active item */
+  }
+        .side-icon {
+    color: #423a8e;
+    
+    
+}
+
+.sid-icon {
+  color: #423a8e;
+  float: right;
+  margin-right: 15px;
+}
+        .header {
+            background-color: #fff;
+            color: #007;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #007;
+        }
+        .header .company-name-left,
+        .header .company-name-middle {
+            color: #007;
+            text-decoration: none;
+        }
+        .header .toggle-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #007;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+      <div class="header">
+        <a href="#" class="company-name-left">BoonGrowth</a>
+
+        <span class="toggle-btn" onclick="openNav()">&#9776;</span>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="invest.html">Investment</a>
+        <a href="contact.html">Contact</a>
+        <a href="deposit.html">Deposit</a>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="profile"><a href="ayama.html" class="prof">
+                <img src="bgm.jpg" alt="Profile Picture">
+                <div>
+                    <div class="name" id=userNameDisplay>Loading ...</div></a>
+                    <div class="tier"></div>
+                </div>
+            </div>
+            <div class="notification">
+              
+            </div>
+        </div>
+
+        <div class="total-assets">
+            <div class="amount" id="balance-display">$0.00</div>
+            <div class="points">    <i class="fas fa-user"></i> Verified</div>
+        </div>
+        <div class="earnings">Yesterday's Earnings: To be updated</div>
+
+
+        
+
+        <div class="transaction-history">
+            <div class="history"> Other Services</div>
+            <div class="transaction">
+
+
+            </div>
+        </div>
+
+        <div class="services">
+            <div class="service"><a href="card.html">        <i class="fa fa-credit-card side-icon me-3"></i> Banks And Cards <i class="fa fa-angle-right sid-icon me-3"></i> </a></div>
+            <div class="service"><a href="#">         <i class="fa fa-chart-bar side-icon me-3"></i> Invest<i class="fa fa-angle-right sid-icon me-3"></i></a></div>
+            <div class="service"><a href="transaction-list.html">         <i class="fa fa-table side-icon me-3"></i> Transaction History<i class="fa fa-angle-right sid-icon me-3"></i></a></div>
+            <div class="service"><a href="settings.html"><i class="fa fa-list side-icon me-3"></i> Edit Account <i class="fa fa-angle-right sid-icon me-3"></a></i></div>
+            <div class="service"><a href="support.html">         <i class="fa fa-home side-icon me-3"></i>  Customer Service  <i class="fa fa-angle-right sid-icon me-3"></i></a></div>
+                        <div class="service"><a href="settings.html"><i class="fa fa-list side-icon me-3"></i> Withdrawal Settings <i class="fa fa-angle-right sid-icon me-3"></a></i></div>
+                                    <div class="service"><a href="settings.html"><i class="fa fa-list side-icon me-3"></i> Change Password<i class="fa fa-angle-right sid-icon me-3"></a></i></div>
+             <div class="service"><a href="#" id="logout-btn"> 
+             
+             <i class="fa fa-cog side-icon"></i> Logout <i class="fa fa-angle-right sid-icon me-3"></i></a></div>
+        </div>
+    </div>
+        
+<div class="bottom-nav">
+  <!-- Home -->
+  <a href="index.html" class="nav-item">
+    <i class="fas fa-home"></i><br>
+    Home
+  </a>
+
+  <!-- Pay -->
+  <a href="deposit.html" class="nav-item ">
+    <i class="fas fa-dollar-sign"></i><br>
+    Deposit
+  </a>
+   <a href="deposit.html" class="nav-item">
+    <i class="fas fa-chart-line"></i><br>
+    Finance
+  </a>
+  <a href="card.html" class="nav-item ">
+    <i class="fas fa-credit-card"></i><br>
+    Card
+  </a>
+  <!-- More -->
+  <a href="profile.html" class="nav-item active">
+    <i class="fas fa-user"></i><br>
+    Me
+  </a>
+</div>
+  
+
+       
+    </div>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+  authDomain: "hendaa-1.firebaseapp.com",
+  databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+  projectId: "hendaa-1",
+  storageBucket: "hendaa-1.appspot.com",
+  messagingSenderId: "831134776479",
+  appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+};
+firebase.initializeApp(firebaseConfig);
+       const auth = firebase.auth();
+        const db = firebase.firestore();
+db.settings({ timestampsInSnapshots: true });
+
+        // Function to display user balance
+        function displayBalance() {
+            // Check if the user is authenticated
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    // User is signed in
+                    const userId = user.uid;
+                    const userRef = db.collection('users').doc(userId);
+
+                    // Retrieve user balance from Firestore
+                    userRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const balance = doc.data().balance;
+                            document.getElementById('balance-display').innerText = `$ ${balance}`;                           document.getElementById('balance-display2').innerText = `$ ${balance}`;
+                        } else {
+                            console.log("No such document!");
+                        }
+                    }).catch((error) => {
+                        console.error("Error getting user document:", error);
+                    });
+                } else {
+                    // User is not signed in
+                    console.log("User is not signed in.");
+                }
+            });
+        }
+
+        // Function to handle user logout
+        function logout() {
+            auth.signOut().then(() => {
+                console.log("User signed out");
+                // Redirect the user to the login page after sign-out
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Error signing out:", error);
+            });
+        }
+        
+
+
+        // Function to display user email
+function displayUserEmail() {
+    // Check if the user is authenticated
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in
+            const userEmail = user.email;
+            document.getElementById('user-email').innerText = userEmail;
+        } else {
+            // User is not signed in
+            console.log("User is not signed in.");
+        }
+    });
+}
+function getCurrentUserName() {
+            // Assuming you have a collection named 'users' and a document with the current user's ID
+            const currentUserID = firebase.auth().currentUser.uid;
+
+            // Reference to the document containing user data
+            const userRef = db.collection('users').doc(currentUserID);
+
+            // Fetch the document
+            userRef.get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        // Get the user's name from the document data
+                        const userName = doc.data().name;
+
+                        // Display the user's name on the dashboard
+                        document.getElementById('userNameDisplay').innerText = "  " + userName + "";
+                        document.getElementById('userNameDisplay2').innerText = "Hi, " + userName + "!";
+                    } else {
+                        console.log("No such document!");
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+        }
+
+        // Listen for authentication state changes
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // If user is logged in, call the function to display the current user's name
+                getCurrentUserName();
+            } else {
+                // If user is not logged in, redirect to the login page or handle as needed
+                window.location.replace("lum.html");
+            }
+        });
+      
+function displayTransactionHistory() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    db.collection('transactions').where('userId', '==', user.uid).get().then((querySnapshot) => {
+                        const transactionList = document.getElementById('transaction-list');
+                        transactionList.innerHTML = ''; // Clear previous data
+                        if (querySnapshot.empty) {
+                            const noRecordRow = document.createElement('tr');
+                            noRecordRow.innerHTML = `<td colspan="3" style="text-align: center; color:red;">No record found</td>`;
+                            transactionList.appendChild(noRecordRow);
+                        } else {
+                            querySnapshot.forEach((doc) => {
+                                const transaction = doc.data();
+                                const statusClass = transaction.status === 'Approved' ? 'bg-success' :
+                                    transaction.status === 'Pending' ? 'bg-warning' :
+                                    (transaction.status === 'Decline' || transaction.status === 'Reject') ? 'bg-danger' : '';
+
+                                const row = document.createElement('tr');
+                                row.innerHTML = `
+                                    <td>${transaction.type}</td>
+                                    <td>$${transaction.amount}</td>
+                                    <td class="text-center">
+                                        <span class="badge ${statusClass}">${transaction.status}</span>
+                                    </td>
+                                `;
+                                transactionList.appendChild(row);
+                            });
+                        }
+                    }).catch((error) => {
+                        console.log('Error getting documents: ', error);
+                    });
+                } else {
+                    // Redirect to login page if no user is signed in
+                    window.location.href = 'login.html';
+                }
+            });
+        }
+
+
+// Call the function to display user balance and transaction history
+displayBalance();
+displayTransactionHistory();
+displayUserEmail();
+// Add event listener to the logout button
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    </script>
+        <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>

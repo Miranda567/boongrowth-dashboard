@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Service - BoonGrowth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto Condensed', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #fff;
+            color: #007;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #007;
+        }
+        .header .company-name-left,
+        .header .company-name-middle {
+            color: #007;
+            text-decoration: none;
+        }
+        .header .toggle-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #007;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #fff;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #007;
+        }
+        p {
+            line-height: 1.6;
+            color: #111;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info h2 {
+            border-bottom: 2px solid #007;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .contact-info p, .contact-info ul {
+            margin-bottom: 10px;
+        }
+        .contact-info li {
+            margin-bottom: 5px;
+        }
+        .fa {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #007;
+        }
+        .report-fraud {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8d7da;
+            border-radius: 8px;
+            border: 2px solid #fff;
+        }
+        .report-fraud h2 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ccc;
+            color: black;
+            text-align: center;
+            border-top: 2px solid #fff;
+            border-radius: 0 0 8px 8px;
+        }
+        footer a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .return-home, .return-me {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid #007;
+            color: #007;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .return-home:hover, .return-me:hover {
+            background-color: #004080;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="company-name-left">BoonGrowth</a>
+
+        <span class="toggle-btn" onclick="openNav()">&#9776;</span>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="invest.html">Investment</a>
+        <a href="contact.html">Contact</a>
+        <a href="deposit.html">Deposit</a>
+    </div>
+    <div class="container">
+        <h2>Customer Service</h2>
+        <p>At Boongrowth, we are committed to providing excellent customer service. Whether you have questions about your account, need assistance with transactions, or have feedback for us, we're here to help.</p>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>If you need to get in touch with us, you can reach us through the following channels:</p>
+            <ul>
+                <li><i class="fas fa-envelope"></i><strong>Email: <a href="mailto:boongrow6@gmail.com" style="text-decoration:none;">Boongrowth.capital</a></strong> </li>
+                <li><i class="fas fa-comment"></i><strong>Live Chat:</strong> Available on our website during business hours</li>
+            </ul>
+            <p>Our customer service team is available 24/7</p>
+        </div>
+        <div class="report-fraud">
+            <h2>Report Fraud or Suspicious Activity</h2>
+            <p>If you suspect any fraudulent activity or have encountered suspicious information related to your account or our services, please report it immediately by sending an email to <strong> <a href="mailto:boongrow6@gmail.com" style="text-decoration:none;">Boongrowth.capital</a></strong></p>
+            <p>We take reports of fraud or suspicious activity very seriously and will investigate them promptly to ensure the security of our customers' accounts and information.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 BoonGrowth All rights reserved.</p>
+        <a href="index.html" class="return-me">Return Home</a>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>
