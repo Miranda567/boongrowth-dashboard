@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D3E7FD;
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .deposit, .transaction {
+            margin-bottom: 10px;
+        }
+        .invest {
+            font-size: 24px;
+            font-weight: bold;
+            color: #111;
+        }
+        .buttonss {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .trans-1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .send {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .white-file {
+            background-color: #f2f2f2;
+            color: #111;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 18px;
+            right: 5px;
+            padding: 10px 10px;
+            font-size: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-button i {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        .example {
+            width: calc(100% - 50px);
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-wrap: break-word;
+        }
+        .qr-code {
+            margin-top: 4px;
+            text-align: center;
+        }
+        .upload-1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        .click button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buyers {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buyers button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        #fileButton {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #fileButton:hover {
+            background-color: #001041;
+        }
+        #fileButton:active {
+            background-color: #003d7f;
+        }
+        #fileButton::after {
+            content: ", Click here!";
+        }
+        #uploader {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+          .warning {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .instructions {
+          color: #111;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="deposit" id="shallow">
+            <div class="deposit-1">
+                <div class="invest">Make Payment</div>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/ca1qbd8yb620zmea595fz/Screenshot_20240809-224742.jpg?rlkey=0hdqc352w3dzkqfw668kfoe5q&dl=0" alt="Your Image">
+        </div>
+        <div class="transaction">
+            <div class="trans">
+              
+                <div class="white-file">
+                    <div class="example">Hycmt7bHLdSGXaFyBZ9mP3vnjnvUKRvgosXqedMhbTyB</div>
+                    <button class="copy-button" onclick="copyToClipboard()"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="qr-code" id="qrcode"></div>
+                <div class="upload">
+
+                    <progress value="0" max="100" id="uploader"></progress>
+                    <input type="file" value="upload" id="fileButton" multiple />
+                    <img src="" id="display">
+                </div>
+                <div class="buyers">
+                    <button id="submitPaymentButton" disabled>Submit Payment</button>
+                </div>
+            </div>
+            <br>
+             <div class="instructions">
+            <div class="warning">
+                Warning: Send only Solana  to this address. Sending any other currency will result in permanent loss.
+            </div>
+              <div class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li>Scan the QR code to get the Solana Address.</li><br>
+                <li>Copy the Solana address above if you prefer manual entry.</li><br>
+                <li>Upload  payment proof after payment </li><br>
+                <li>Click the proceed button to complete the transaction.</li>
+            </ol>
+        </div>
+    </div>
+        </div>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+            authDomain: "hendaa-1.firebaseapp.com",
+            databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+            projectId: "hendaa-1",
+            storageBucket: "hendaa-1.appspot.com",
+            messagingSenderId: "831134776479",
+            appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+        };
+        firebase.initializeApp(config);
+
+        // Get Elements
+        var uploader = document.getElementById("uploader");
+        var fileButton = document.getElementById("fileButton");
+        var submitPaymentButton = document.getElementById("submitPaymentButton");
+
+        // Listen for file selection
+        fileButton.addEventListener('change', function(e) {
+            for (var i = 0; i < e.target.files.length; i++) {
+                // Get file
+                var file = e.target.files[i];
+
+                // Create a storage ref
+                var storageRef = firebase.storage().ref('images/' + file.name);
+
+                // Upload file
+                var task = storageRef.put(file);
+
+                // Update progress bar
+                task.on('state_changed',
+                    function progress(snapshot) {
+                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        uploader.value = percentage;
+                        if (percentage === 100) {
+                            alert("File Uploaded Successfully");
+                            submitPaymentButton.disabled = false; // Enable the submit button
+                        }
+                    },
+                    function error(err) {
+                        console.error("Error uploading file:", err);
+                    }
+                );
+            }
+        });
+
+        // Handle the submit button click
+        submitPaymentButton.addEventListener('click', function() {
+            // Redirect to the desired page
+            window.location.href = "success.html";
+        });
+
+        function copyToClipboard() {
+            var copyText = document.querySelector('.example');
+            var textArea = document.createElement("textarea");
+            textArea.value = copyText.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Copied the text: " + copyText.textContent);
+        }
+
+        // Generate QR Code
+        var qrCode = new QRCode(document.getElementById("qrcode"), {
+            width: 150,
+            height: 150
+        });
+        qrCode.makeCode("bc1q8q69hldverp79m3ktjp2twy9znpzjfxxwvd7tl"); // Replace with your bitcoin address
+    </script>
+</body>
+</html>
