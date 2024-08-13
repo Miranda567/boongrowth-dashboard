@@ -301,9 +301,6 @@
     </div>
     <div class="container">
         <div class="header">
-            <div class="profile"><a href="ayama.html" class="prof">
-                <img src="bgm.jpg" alt="Profile Picture">
-                <div>
                     <div class="name" id=userNameDisplay>Loading ...</div></a>
                     <div class="tier"></div>
                 </div>
@@ -332,7 +329,7 @@
 
         <div class="services">
             <div class="service"><a href="card.html">        <i class="fa fa-credit-card side-icon me-3"></i> Banks And Cards <i class="fa fa-angle-right sid-icon me-3"></i> </a></div>
-            <div class="service"><a href="#">         <i class="fa fa-chart-bar side-icon me-3"></i> Invest<i class="fa fa-angle-right sid-icon me-3"></i></a></div>
+            <div class="service"><a href="invest.html">         <i class="fa fa-chart-bar side-icon me-3"></i> Invest<i class="fa fa-angle-right sid-icon me-3"></i></a></div>
             <div class="service"><a href="transaction-list.html">         <i class="fa fa-table side-icon me-3"></i> Transaction History<i class="fa fa-angle-right sid-icon me-3"></i></a></div>
             <div class="service"><a href="settings.html"><i class="fa fa-list side-icon me-3"></i> Edit Account <i class="fa fa-angle-right sid-icon me-3"></a></i></div>
             <div class="service"><a href="support.html">         <i class="fa fa-home side-icon me-3"></i>  Customer Service  <i class="fa fa-angle-right sid-icon me-3"></i></a></div>
@@ -404,7 +401,7 @@ db.settings({ timestampsInSnapshots: true });
                     // Retrieve user balance from Firestore
                     userRef.get().then((doc) => {
                         if (doc.exists) {
-                            const balance = doc.data().balance;
+                            const balance = doc.data().mainBalance;
                             document.getElementById('balance-display').innerText = `$ ${balance}`;                           document.getElementById('balance-display2').innerText = `$ ${balance}`;
                         } else {
                             console.log("No such document!");
