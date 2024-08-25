@@ -1,129 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deposit Funds | Boongrowth</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 400px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            padding: 20px;
-        }
-        .header {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="widthgv=device-width, initial-scale=1.0">
+  <title>Deposit Funds | BoonGrowth</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #f1f1f1;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+header h2 {
+  font-size: 12px;
+}
+h1 {
+  margin: 0;
+}
+        .back-to-home {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #007;
-        }
-        .header h1 {
-            font-size: 18px;
-            margin: 0;
-        }
-        .header .history {
-            color: #007;
-            cursor: pointer;
             text-decoration: none;
-        }
-        .fund-method, .amount-section {
-            margin: 20px 0;
-        }
-        .fund-method h2 {
-            font-size: 16px;
             color: #007;
-            margin-bottom: 10px;
-        }
-        .amount-section h2 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        .add-card {
-            display: relative;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            border: 1px solid #007;
-            border-radius: 8px;
-          
-            color: #007;
-        }
-        .add-card p{
-          font-size: 16px;
-          margin-bottom: 10px;
-          
-        }
-        .add-card img {
-            margin-right: 10px;
-            width: 40px;
-            height: 40px;
-        }
-        .amount-input, select {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .amount-input input, select {
-            border: none;
-            outline: none;
-            font-size: 14px;
-            flex-grow: 1;
-        }
-        .amount-input button {
-            background: #007;
-            border: none;
-            color: #fff;
-                    
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid #f1f1f1;
+            padding: 6px 5px;
             border-radius: 5px;
-            padding: 8px 20px;
-            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
-        .amount-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: space-between;
+        .back-to-home i {
+            margin-right: 10px;
         }
-        .amount-buttons button {
-            background: #f5f5f5;
-            border: 1px solid #007;
-            border-radius: 8px;
-            padding: 10px;
-            width: 48%;
-            cursor: pointer;
+        .back-to-home:hover {
+            background-color: #f1f1f1;
+            color: #007bff;
         }
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: gray;
-            margin-top: 20px;
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.deposit-funds-section {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.deposit-funds-section h2 {
+  color: #001041;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+            padding: 20px 30px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      outline: none;
         }
-        .footer a {
-            color: #007;
-            text-decoration: none;
+  
+      
+select {
+  
+      display: block;
+      width: 100%;
+      padding: 20px 50px;
+      margin: 0 auto 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 10px;
+      background-color: #fff;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      outline: none;
+      font-weight: 400;
+  
         }
-            .bottom-nav {
+
+button {
+  background-color: #007;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+    .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-  align-items: center;
+  
     background-color: #fff; /* Light gray background color */
     display: flex;
     justify-content: space-around;
@@ -137,15 +138,13 @@
     text-align: center;
     flex-grow: 1;
     padding: 5px 0;
-    font-size: 12px;
     color: #007; /* Default color for icons */
     text-decoration: none;
   }
-  
 
   /* Bottom navigation item icon style */
   .nav-item i {
-    font-size: 24px; /* Adjust icon size as needed */
+    font-size: 14px; /* Adjust icon size as needed */
   }
 
   /* Active item style */
@@ -157,162 +156,56 @@
     margin: 2px;
     /* Blue color for active item */
   }
-          .header {
-            background-color: #fff;
-            color: #007;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #007;
-        }
-        .header .company-name-left,
-        .header .company-name-middle {
-            color: #007;
-            text-decoration: none;
-        }
-        .header .toggle-btn {
-            font-size: 24px;
-            cursor: pointer;
-            color: #007;
-        }
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .sidebar .close-btn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-             .details {
-            display: none;
-        }
-    </style>
+  .titles {
+    margin: 15px;
+  }
+</style>
 </head>
 <body>
-   <div class="header">
-        <a href="index.html" class="company-name-left">BoonGrowth</a>
+   
+<header>
+          <a href="index.html" class="back-to-home">
+            <i class="fas fa-angle-left"></i>Deposit
+        </a>
+ 
+</header>
 
-        <span class="toggle-btn" onclick="openNav()">&#9776;</span>
-    </div>
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="invest.html">Investment</a>
-        <a href="contact.html">Contact</a>
-        <a href="deposit.html">Deposit</a>
-        <a href="transactions.html">transactions</a>
-    </div>
-    <div class="container">
-        <div class="header">
-            <h1>Top-up Your Account</h1>
-            <a href="transactions.html" class="history">History</a>
-        </div>
-        <div class="fund-method">
-          
-                                                    <h2>Deposit Summary</h2>
-                    <p>Please ensure all the deposit details are correct</p>
+<main>
+  <h2 class="titles">Deposit Funds to Your Account</h2>
 
-
-
-        </div>
-        <div class="amount-section">
-
-                <form id="depositForm">
-                  
-                   <label for="paymentMethod"><b>Payment Method</b></label>
-                   <br>
-        <select id="paymentMethod" required>
-            <option value="">Select a payment method</option>
+  <section class="deposit-funds-section">
+    <hr>
+    <h2>Deposit Summary</h2>
+    <p>Please ensure all the deposit details are correct</p>
+    <hr>
+    <form id="depositForm">
+      
+                      <div class="form-group">
+                      
+   <label for="paymentMethod">Select the payment method you would like to use for your deposit:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="" disabled selected>Select a payment method</option>
             <option value="bitcoin">Bitcoin</option>
             <option value="ethereum">Ethereum</option>
-            <option value="litecoin">Litecoin</option>
-            <option value="solana">Solana</option>
+            <option value="litecoin">USDT</option>
         </select>
         
-                    <h2>Enter or select amount</h2>
-            <div class="amount-input">
-              
-                <input type="text"  id="amount" placeholder="Enter 100~99,999,999">
-                <button type="submit">Fund</button>
-                </form>
-            </div>
-            <div class="amount-buttons">
-                <button>₦200</button>
-                <button>₦1,000</button>
-                <button>₦2,000</button>
-                <button>₦3,000</button>
-                <button>₦5,000</button>
-                <button>₦10,000</button>
-            </div>
-        </div>
-                    <div class="add-card">Total Deposit: 
-                 <span id="depositBalanceDisplay">$ 0.00</span>
-            </div>
-        <div class="footer">
-            
-        </div>
-    </div>
-    <div class="bottom-nav">
-  <!-- Home -->
-  <a href="index.html" class="nav-item">
-    <i class="fas fa-home"></i><br>
-    Home
-  </a>
+      
+      <div class="form-group">
+        <p> Once you have selected your payment method, please enter the amount you would like to deposit in the field below:</p>
+        <label for="amount">Amount to Deposit:</label>
+        <input type="text" id="amount"  placeholder="Enter Amount" name="amount" required>
+      </div>
 
-  <!-- Pay -->
-  <a href="deposit.html" class="nav-item active">
-    <i class="fas fa-dollar-sign"></i><br>
-    Deposit
-  </a>
-   <a href="deposit.html" class="nav-item">
-    <i class="fas fa-chart-line"></i><br>
-    Finance
-  </a>
-  <a href="card.html" class="nav-item">
-    <i class="fas fa-credit-card"></i><br>
-    Card
-  </a>
-  <!-- More -->
-  <a href="profile.html" class="nav-item">
-    <i class="fas fa-user"></i><br>
-    Me
-  </a>
 </div>
-    <script>
-        document.querySelectorAll('.amount-buttons button').forEach(button => {
-            button.addEventListener('click', () => {
-                const amount = button.innerText.replace('₦', '');
-                document.querySelector('.amount-input input').value = amount;
-            });
-        });
-
-        
-        
-    </script>
-     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+      <button type="submit">Deposit Funds</button>
+    </form>
+    
+  </section>
+  
+</main>
+  
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script>
@@ -355,10 +248,7 @@ firebase.initializeApp(firebaseConfig);
                             redirectUrl = "eth.html";
                             break;
                         case "litecoin":
-                            redirectUrl = "litecoin.html";
-                            break;
-                            case "solana":
-                            redirectUrl = "solana.html";
+                            redirectUrl = "usdt.html";
                             break;
                     }
                     window.location.href = redirectUrl;
@@ -370,44 +260,6 @@ firebase.initializeApp(firebaseConfig);
                 alert("Please enter a valid amount and select a payment method.");
             }
         });
-            function displayDepositBalance() {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const userRef = db.collection("users").doc(user.uid);
-                    userRef.get().then((doc) => {
-                        if (doc.exists) {
-                            const depositBalance = doc.data().depositBalance || 0;
-                            document.getElementById("depositBalanceDisplay").innerText = ` $${depositBalance}`;
-                        } else {
-                            console.log("No such document!");
-                        }
-                    }).catch((error) => {
-                        console.log("Error getting document:", error);
-                    });
-                } else {
-                    // Redirect to login page if no user is signed in
-                    window.location.href = "login.html";
-                }
-            });
-        }
-        // Listen for authentication state changes
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-          
-                displayDepositBalance();
-              
-            } else {
-                window.location.replace("login.html");
-            }
-        });
-    </script>
-        <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-        }
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-        }
     </script>
 </body>
 </html>
