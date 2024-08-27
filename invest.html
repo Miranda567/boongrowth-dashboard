@@ -178,6 +178,131 @@ th {
   color: #fff;
   padding: 15px 10px;
 }
+      
+          
+          ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .status-active {
+            color: #28a745;
+        }
+        .status-inactive {
+            color: #ffc107;
+        }
+        .status-completed {
+            color: #dc3545;
+        }
+        .details {
+            flex-grow: 1;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .plano {
+          color: #339;
+          font-size: 24px;
+          
+        }
+                .balance-cardo {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 30px;
+            margin-right: 20px;
+        }
+        .balance {
+            flex-grow: 1;
+        }
+        .balance-cardo h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .balance-cardo p {
+            font-size: 24px;
+            margin: 5px 0 0;
+        }
+        .account { color: #000; background: #f4f4f4;}
+        .profit { color: #111; }
+        .deposit { color: #222; }
+        .withdrawal { color: #333; }
+        
+    /* The Modal (background) */
+    .custom-alert {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+        overflow: auto; /* Enable scroll if needed */
+    }
+
+    /* Modal Content */
+    .custom-alert-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        max-width: 400px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* The Close Button */
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
 </style>
 </head>
 <body>
@@ -199,6 +324,7 @@ th {
 <p>Choose from a variety of investment plans, and the funds will be automatically allocated to your selected plan.</p>                                    
 <h2>Investment Summary</h2>
 <p>Please ensure all the investment details are correct.</p>
+
                             
           <form id="investmentForm">
                 <div class="form-group"></div>
@@ -219,19 +345,19 @@ th {
         <button type="submit">Invest</button>
       
     </form>
+    <div id="customAlert" class="custom-alert">
+    <div class="custom-alert-content">
+        <span class="close-btn">&times;</span>
+        <p id="alertMessage"></p>
+        <button id="closeAlertButton" class="btn">OK</button>
+    </div>
+</div>
         <div class="investment-summary" id="investmentSummary"></div>
     <div class="investment-history">
         <h2>Investment History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Plan</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody id="investmentHistory"></tbody>
-        </table>
+      
+            <ul id="investmentHistory"></ul>
+    
     </div>
     
   </section>
@@ -240,141 +366,187 @@ th {
 
 </main>
   
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
-            authDomain: "hendaa-1.firebaseapp.com",
-            databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
-            projectId: "hendaa-1",
-            storageBucket: "hendaa-1.appspot.com",
-            messagingSenderId: "831134776479",
-            appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAtVvPjdsj84mWqaG4-7SyjbljCnslZ1SM",
+        authDomain: "hendaa-1.firebaseapp.com",
+        databaseURL: "https://hendaa-1-default-rtdb.firebaseio.com",
+        projectId: "hendaa-1",
+        storageBucket: "hendaa-1.appspot.com",
+        messagingSenderId: "831134776479",
+        appId: "1:831134776479:web:56cd7098fc69cd70a376aa"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-        // Function to display user info
-        function displayUserInfo() {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const userRef = db.collection("users").doc(user.uid);
-                    userRef.get().then((doc) => {
-                        if (doc.exists) {
-                            const userData = doc.data();
-                            
-                            document.getElementById("userBalance").innerText = "Main Balance: $" + (userData.mainBalance || 0);
-                        } else {
-                            console.log("No such document!");
-                        }
-                    }).catch((error) => {
-                        console.log("Error getting document:", error);
-                    });
-                } else {
-                    window.location.href = "login.html";
-                }
-            });
-        }
+    // Function to show custom alert
+    function showCustomAlert(message) {
+        const customAlert = document.getElementById("customAlert");
+        const alertMessage = document.getElementById("alertMessage");
+        alertMessage.innerText = message;
+        customAlert.style.display = "block";
+    }
 
-        // Function to handle investment submission
-        document.getElementById("investmentForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const investmentPlan = document.getElementById("investmentPlan");
-            const selectedOption = investmentPlan.options[investmentPlan.selectedIndex];
-            const minimumAmount = parseFloat(selectedOption.getAttribute("data-minimum"));
-            const investmentAmount = parseFloat(document.getElementById("investmentAmount").value);
+    // Function to close custom alert
+    function closeCustomAlert() {
+        const customAlert = document.getElementById("customAlert");
+        customAlert.style.display = "none";
+    }
 
-            if (investmentAmount < minimumAmount) {
-                alert("Can't invest below the minimum amount for the selected plan.");
-                return;
-            }
+    // Event listener for the close button (X)
+    document.getElementsByClassName("close-btn")[0].onclick = function() {
+        closeCustomAlert();
+    }
 
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const userRef = db.collection("users").doc(user.uid);
-                    userRef.get().then((doc) => {
-                        if (doc.exists) {
-                            const userData = doc.data();
-                            const mainBalance = userData.mainBalance || 0;
-                            if (mainBalance < investmentAmount) {
-                                alert("Insufficient balance for this investment.");
-                                return;
-                            }
+    // Event listener for the OK button
+    document.getElementById("closeAlertButton").onclick = function() {
+        closeCustomAlert();
+    }
 
-                            const newMainBalance = mainBalance - investmentAmount;
-                            const withdrawalBalance = userData.withdrawalBalance || 0;
-                            const newWithdrawalBalance = withdrawalBalance + investmentAmount;
-
-                            // Update balances in Firestore
-                            userRef.update({
-                                mainBalance: newMainBalance,
-                                withdrawalBalance: newWithdrawalBalance
-                            }).then(() => {
-                                alert("Investment successful!");
-                                // Add investment to history
-                                db.collection("users").doc(user.uid).collection("investments").add({
-                                    plan: selectedOption.text,
-                                    amount: investmentAmount,
-                                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                                });
-
-                                // Display investment summary
-                                document.getElementById("investmentSummary").innerHTML = `
-                                    <h2>Investment Summary</h2>
-                                    <p>Plan: ${selectedOption.text}</p>
-                                    <p>Amount: $${investmentAmount}</p>
-                                    <p>Main Balance: $${newMainBalance}</p>
-                                    <p>Withdrawal Balance: $${newWithdrawalBalance}</p>
-                                `;
-
-                                // Display updated investment history
-                                displayInvestmentHistory(user.uid);
-
-                                // Update the displayed user balance
-                                document.getElementById("userBalance").innerText = "Main Balance: $" + newMainBalance;
-                            }).catch((error) => {
-                                console.error("Error updating balances: ", error);
-                            });
-                        }
-                    }).catch((error) => {
-                        console.log("Error getting document:", error);
-                    });
-                } else {
-                    window.location.href = "login.html";
-                }
-            });
-        });
-
-        // Function to display investment history
-        function displayInvestmentHistory(userId) {
-            db.collection("users").doc(userId).collection("investments").orderBy("timestamp", "desc").get().then((querySnapshot) => {
-                const investmentHistory = document.getElementById("investmentHistory");
-                investmentHistory.innerHTML = ""; // Clear previous data
-
-                querySnapshot.forEach((doc) => {
-                    const investment = doc.data();
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${investment.plan}</td>
-                        <td>$${investment.amount}</td>
-                        <td>${new Date(investment.timestamp.toDate()).toLocaleString()}</td>
-                    `;
-                    investmentHistory.appendChild(row);
-                });
-            }).catch((error) => {
-                console.log("Error getting investment history: ", error);
-            });
-        }
-
-        // Display user info and investment history on page load
+    // Function to display user info
+    function displayUserInfo() {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                displayUserInfo();
-                displayInvestmentHistory(user.uid);
+                const userRef = db.collection("users").doc(user.uid);
+                userRef.get().then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        
+                        document.getElementById("userBalance").innerText = "Main Balance: $" + (userData.mainBalance || 0);
+                    } else {
+                        console.log("No such document!");
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+            } else {
+                window.location.href = "login.html";
             }
         });
-    </script>
+    }
+
+    // Function to handle investment submission
+    document.getElementById("investmentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const investmentPlan = document.getElementById("investmentPlan");
+        const selectedOption = investmentPlan.options[investmentPlan.selectedIndex];
+        const minimumAmount = parseFloat(selectedOption.getAttribute("data-minimum"));
+        const investmentAmount = parseFloat(document.getElementById("investmentAmount").value);
+
+        if (investmentAmount < minimumAmount) {
+            showCustomAlert("Can't invest below the minimum amount for the selected plan.");
+            return;
+        }
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                const userRef = db.collection("users").doc(user.uid);
+                userRef.get().then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        const mainBalance = userData.mainBalance || 0;
+                        if (mainBalance < investmentAmount) {
+                            showCustomAlert("Insufficient balance for this investment.");
+                            return;
+                        }
+
+                        const newMainBalance = mainBalance - investmentAmount;
+                        const withdrawalBalance = userData.withdrawalBalance || 0;
+                        const newWithdrawalBalance = withdrawalBalance + investmentAmount;
+
+                        // Update balances in Firestore
+                        userRef.update({
+                            mainBalance: newMainBalance,
+                            withdrawalBalance: newWithdrawalBalance
+                        }).then(() => {
+                            showCustomAlert("Investment successful!");
+
+                            // Add investment to history with new fields
+                            db.collection("users").doc(user.uid).collection("investments").add({
+                                planName: selectedOption.text,
+                                investmentAmount: investmentAmount,
+                                startDate: new Date(),
+                                endDate: calculateEndDate(selectedOption.value), // Function to determine end date based on plan
+                                status: "active",
+                                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+
+                            // Display investment summary
+                            document.getElementById("investmentSummary").innerHTML = `
+                                <h2>Investment Summary</h2>
+                                <p>Plan: ${selectedOption.text}</p>
+                                <p>Amount: $${investmentAmount}</p>
+                                <p>Main Balance: $${newMainBalance}</p>
+                                <p>Withdrawal Balance: $${newWithdrawalBalance}</p>
+                            `;
+
+                            // Display updated investment history
+                            displayInvestmentHistory(user.uid);
+
+                            // Update the displayed user balance
+                            document.getElementById("userBalance").innerText = "Main Balance: $" + newMainBalance;
+                        }).catch((error) => {
+                            console.error("Error updating balances: ", error);
+                        });
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+    });
+
+    // Function to calculate end date based on investment plan
+    function calculateEndDate(planValue) {
+        // Example logic: Add 30 days for "planValue1", 60 days for "planValue2", etc.
+        let daysToAdd = 30; // Default
+        if (planValue === "planValue2") daysToAdd = 60;
+        // Add more conditions as needed
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + daysToAdd);
+        return endDate;
+    }
+
+    // Function to display investment history
+    function displayInvestmentHistory(userId) {
+        db.collection("users").doc(userId).collection("investments").orderBy("timestamp", "desc").get().then((querySnapshot) => {
+            const investmentHistory = document.getElementById("investmentHistory");
+            investmentHistory.innerHTML = ""; // Clear previous data
+
+            querySnapshot.forEach((doc) => {
+                const investment = doc.data();
+                const statusClass = investment.status === 'active' ? 'status-active' :
+                                    investment.status === 'completed' ? 'status-completed' :
+                                    'status-inactive'; // Default class for inactive status
+
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <span class="icon">💼</span> <!-- You can customize the icon here -->
+                    <div class="details">
+                        <strong>${investment.planName}</strong> - $${investment.investmentAmount}
+                        <div class="timestamp">${new Date(investment.timestamp.seconds * 1000).toLocaleString()}</div>
+                    </div>
+                    <div class="${statusClass}">${investment.status}</div>
+                `;
+                investmentHistory.appendChild(listItem);
+            });
+        }).catch((error) => {
+            console.log("Error getting investment history: ", error);
+        });
+    }
+
+    // Display user info and investment history on page load
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            displayUserInfo();
+            displayInvestmentHistory(user.uid);
+        }
+    });
+</script>
 </body>
 </html>
