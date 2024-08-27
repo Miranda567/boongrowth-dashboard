@@ -185,9 +185,11 @@ button:hover {
    <label for="paymentMethod">Select the payment method you would like to use for your deposit:</label>
         <select id="paymentMethod" name="paymentMethod" required>
             <option value="" disabled selected>Select a payment method</option>
-            <option value="bitcoin">Bitcoin</option>
-            <option value="ethereum">Ethereum</option>
-            <option value="litecoin">USDT</option>
+            <option value="BITCOIN">Bitcoin</option>
+            <option value="ETHEREUM">Ethereum</option>
+            <option value="USDT">USDT</option>
+                        <option value="LITECOIN">Litecoin</option>
+            <option value="SOLANA">Solana</option>
         </select>
         
       
@@ -241,13 +243,19 @@ firebase.initializeApp(firebaseConfig);
                     alert("Deposit request submitted successfully!");
                     let redirectUrl = "";
                     switch(paymentMethod) {
-                        case "bitcoin":
+                        case "BITCOIN":
                             redirectUrl = "btc.html";
                             break;
-                        case "ethereum":
+                        case "ETHEREUM":
                             redirectUrl = "eth.html";
                             break;
-                        case "litecoin":
+                        case "LITECOIN":
+                            redirectUrl = "litecoin.html";
+                            break;
+                        case "SOLANA":
+                            redirectUrl = "solana.html";
+                            break;
+                        case "USDT":
                             redirectUrl = "usdt.html";
                             break;
                     }
