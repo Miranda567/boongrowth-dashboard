@@ -5,47 +5,99 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        .header {
-            background-color: #fff;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #fff;
-        }
-        .header img {
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-        }
-        .header h1 {
-            font-size: 20px;
-            margin: 0;
-        }
-        .header-icons {
-            display: flex;
-            align-items: center;
-        }
-        .header-icons img {
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
-        }
+header {
+    background-color: #fff; /* Blue */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.profile-icon {
+  margin-right: 30px;
+}
+.profile-icon i {
+    font-size: 18px;
+}
+
+.toggle-btn i {
+    font-size: 24px;
+    
+}
+.toggle-btn {
+  color: #111;
+  background: #ffffff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4; /* Blue */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: #111;
+    z-index: 1000;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.nav-link {
+    padding: 15px;
+    text-decoration: none;
+    color: #3e3e3e;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.nav-link i {
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    background-color: #0057e7; /* Darker Blue */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: #111;
+    cursor: pointer;
+}
         .balance-card {
             background: linear-gradient(185deg, rgb(42, 72, 120), rgb(20, 22, 128));/* Replace with your image URL */
     background-size: cover;
     background-position: center;
     
             color: #fff;
-            padding: 20px;
+            padding: 10px;
             
             margin: 10px;
+            margin-top: 80px;
             border-radius: 10px;
             
         }
         .balance-card h2 {
             margin: 0;
-            font-size: 24px;
+            font-size: 14px;
         }
         .balance-card p {
             margin: 10px 0;
@@ -60,8 +112,9 @@
             background-color: #fff;
             color: #007;
             border: none;
-            padding: 2px 25px;
+            padding: 2px 15px;
             border-radius: 10px;
+            font-size: 14px;
             cursor: pointer;
           
           
@@ -80,6 +133,7 @@
             width: 20%;
             margin: 10px;
             padding: 10px;
+            border: 1px solid #ccc;
             font-weight: bold;
                         font-size: 12px;
             border-radius: 10px;
@@ -162,7 +216,7 @@ label {
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #005;
         }
 .
 @media (max-width: 768px) {
@@ -235,7 +289,7 @@ li {
 
 #totalProfit {
   font-size: 24px;
-  color: #f00;
+  color: #111;
 }
   .bonus-header,
 .referral-bonus-header {
@@ -244,10 +298,11 @@ li {
   align-items: center;
 }
 
-#bonusAmount,#pending-balance,
-#referralBonusAmount {
-  font-size: 14px;
-  color: #;
+#bonus,#withdrawal-balance,
+#profit-balance,#deposit-balance {
+  font-size: 28px;
+  font-weight: 300;
+  color: #333;
 }
 #bonus-section {
   display: grid;
@@ -285,9 +340,9 @@ li {
   color: #fff;
 }
 
-.bonus-deposit-panel h2 {
+.bonus-deposit h2 {
   font-size: 16px;
-  color: #fff;
+  color: #f00;
   font-weight: 500;
   text-align: center;
   
@@ -367,36 +422,7 @@ li {
 }
 
 
-    .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin-top: 20px;
-              align-items: center;
-      
-    background-color: #fff; /* Light gray background color */
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 0;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    z-index: 1000; /* Ensure the navigation is on top of other content */
-  }
-
-  /* Bottom navigation item style */
-  .nav-item {
-    text-align: center;
-    flex-grow: 1;
-    font-size: 12px;
-    padding: 5px 0;
-    color: #007; /* Default color for icons */
-    text-decoration: none;
-  }
-
-  /* Bottom navigation item icon style */
-  .nav-item i {
-    font-size: 24px; /* Adjust icon size as needed */
-  }
+  
 
   /* Active item style */
   .active {
@@ -411,31 +437,7 @@ li {
   text-decoration: none;
   color: #007;
 }
-    .navbar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-    
-            background-color: #3399ff;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 5px 0;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            flex: 1;
-        }
-        .navbar a i {
-            display: block;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        .navbar a span {
-            font-size: 12px;
-        }
+ 
         
 .balance-carda {
     background-color: #e9f7ef;
@@ -504,3 +506,222 @@ li {
     color: #fff;
     background-color: #dc3545;
 }
+ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .status-approved {
+            color: #28a745;
+        }
+        .status-pending {
+            color: #ffc107;
+        }
+        .status-rejected {
+            color: #dc3545;
+        }
+        .details {
+            flex-grow: 1;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .plano {
+          color: #339;
+          font-size: 24px;
+          
+        }
+                .balance-cardo {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .icon {
+            font-size: 30px;
+            margin-right: 20px;
+        }
+        .balance {
+            flex-grow: 1;
+        }
+        .balance-cardo h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+        .balance-cardo p {
+            font-size: 10px;
+            margin: 5px 0 0;
+        }
+        .account { color: #000; background: #f4f4f4;}
+        .profit { color: #111; }
+        .deposit { color: #222; }
+        .withdrawal { color: #333; }
+        
+            .containeer {
+          background-image: url('background-pi.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: 10px;
+  }
+  /* Transaction item style */
+  .transaction-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+    .quick-acces {
+    
+    margin-right: auto;
+    font-weight: 10px;
+    color: #333;
+  }
+
+  /* Edit link style */
+  .edit-lin {
+    color: #40196d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Paragraph style */
+
+
+  /* Link style */
+  .link {
+    text-decoration: none;
+    color: #007bff; /* Blue color for links, change as needed */
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  /* Transaction details style */
+  .transaction-details {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Transaction currency icon style */
+  .currency-icon {
+    margin-right: 10px; /* Adjust margin as needed */
+    color: #007bff; /* Blue color for currency icons, change as needed */
+  }
+
+  /* Transaction asset heading style */
+  .transaction-asset {
+    margin-right: auto; /* Pushes the amount to the right */
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Amount style */
+  .amount {
+    font-weight: bold;
+    color: #333;
+  }
+ 
+  .active {
+    color: #007bff; /* Blue color for active item */
+  }
+  .lastlogin {
+    margin-left: 20px;
+  }
+  .transaction {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.icon-purple {
+    background-color: #d9b3ff;
+}
+
+.icon-green {
+    background-color: #b3ffcc;
+}
+
+.details {
+    flex-grow: 1;
+}
+
+.details .name {
+    display: block;
+    font-weight: 20px;
+}
+
+.details .time {
+    display: block;
+    color: #888;
+    font-size: 0.7em;
+}
+
+.amount {
+    
+    font-size: 0.9em;
+}
+
+.amount.negative {
+    color: black;
+}
+
+.amount.positive {
+    color: green;
+}
+ 
+                #investment-plan-container {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+
+        #investment-plan-container h3 {
+            margin: 0 0 10px 0;
+        }
+
+        #active-plan-name, #active-plan-status {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        header h1 {
+          font-size: 14px;
+          float: right;
+          margin-right: 70px;
+          align-items: left;
+          text-align: center;
+        }
+        .transaction-title {
+          margin: 10px;
+          color: #0e0e52;
+        }
