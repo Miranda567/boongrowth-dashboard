@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="widthgv=device-width, initial-scale=1.0">
-  <title>Deposit Funds</title>
+  <title>Investment | Boongrowth</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <style>
   body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  
+  line-height: 1.5;
+  font-family: Roboto Condensed, sansserif;
   background-color: #f4f4f4;
 }
 
@@ -198,20 +200,25 @@ th {
             margin-right: 15px;
         }
         .status-active {
-            color: #28a745;
+            color: #111;
+            font-weight: 600;
         }
         .status-inactive {
             color: #ffc107;
         }
-        .status-completed {
+        .status-xompleted {
             color: #dc3545;
         }
         .details {
             flex-grow: 1;
+            color: #333;
+            font-size: 14px
         }
         .timestamp {
             font-size: 0.9em;
-            color: #555;
+            color: #3d3d3d;
+            opacity: 0.7;
+            
         }
         .plano {
           color: #339;
@@ -302,6 +309,10 @@ th {
     .btn:hover {
         background-color: #45a049;
     }
+    .stat {
+      color: dodgerblue;
+      font-weight: 300;
+    }
 
 </style>
 </head>
@@ -331,10 +342,12 @@ th {
         <label for="investmentPlan">Select Investment Plan:</label>
         <select id="investmentPlan" required>
             <option value="">Select a plan</option>
-            <option value="plan1" data-minimum="100">Plan 1 - $100 minimum</option>
-            <option value="plan2" data-minimum="200">Plan 2 - $200 minimum</option>
-            <option value="plan3" data-minimum="300">Plan 3 - $300 minimum</option>
-            <option value="plan4" data-minimum="400">Plan 4 - $400 minimum</option>
+            <option value="plan1" data-minimum="20">Basic Investment Plan- $20 Min</option>
+            <option value="plan2" data-minimum="50">Silver Investment Plan - $50 minimum</option>
+            <option value="plan3" data-minimum="100">Gold Investment Plan - $100 minimum</option>
+            <option value="plan4" data-minimum="175">Platinum investment Plan - $175 Min</option>
+            <option value="plan5" data-minimum="200">Diamond investment Plan - $200 Min</option>
+            <option value="plan6" data-minimum="250">Sapphire investment Plan - $250 Min</option>
         </select>
 </div>
       <div class="form-group">
@@ -528,10 +541,10 @@ th {
                 listItem.innerHTML = `
                     <span class="icon">💼</span> <!-- You can customize the icon here -->
                     <div class="details">
-                        <strong>${investment.planName}</strong> - $${investment.investmentAmount}
+                        <strong>${investment.planName}</strong> -              
                         <div class="timestamp">${new Date(investment.timestamp.seconds * 1000).toLocaleString()}</div>
-                    </div>
-                    <div class="${statusClass}">${investment.status}</div>
+ </div>
+                    <div class="${statusClass}">$${investment.investmentAmount}</div>
                 `;
                 investmentHistory.appendChild(listItem);
             });
